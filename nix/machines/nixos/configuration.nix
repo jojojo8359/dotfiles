@@ -90,6 +90,7 @@
       kdePackages.kate
     #  thunderbird
     ];
+    shell = pkgs.zsh;
   };
 
   # Install firefox.
@@ -115,6 +116,8 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+
+  programs.zsh.enable = true;
 
   # List services that you want to enable:
 

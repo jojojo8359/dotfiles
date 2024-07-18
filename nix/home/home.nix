@@ -8,6 +8,7 @@
 
   home.username = "joel";
   home.homeDirectory = "/home/joel";
+  xdg.enable = true;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -20,5 +21,6 @@
 
   programs = {
     alacritty = (import ./alacritty.nix { inherit config pkgs; });
+    zsh = (import ./zsh.nix { inherit config pkgs; });
   };
 }
