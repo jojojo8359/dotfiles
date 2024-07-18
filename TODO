@@ -1,0 +1,10 @@
+- Oh My Posh
+- eza
+- fzf
+- zoxide
+- neovim
+- tmux
+- zsh exports (EDITOR + SHELL?)
+- extra zsh "initExtra"s for omp + fzf, etc.
+- python setup (per directory???)
+- other programming tools
