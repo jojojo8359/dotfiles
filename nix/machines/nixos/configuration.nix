@@ -105,7 +105,7 @@
   #  wget
     git
     stow
-    alacritty
+  #  alacritty
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
