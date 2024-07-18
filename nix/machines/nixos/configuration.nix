@@ -106,7 +106,7 @@
   #  wget
     git
     stow
-  #  alacritty
+    thefuck
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
