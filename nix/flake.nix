@@ -34,19 +34,14 @@
         modules = [
           # NixOS Configuration - based on hostname
           ./machines/nixos/configuration.nix
-        ];
-      };
-    };
 
-    # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#your-username@your-hostname'
-    homeConfigurations = {
-      "joel@nixos" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = { inherit inputs outputs; };
-        
-        # Home Manager configuration file
-        modules = [ ./home/home.nix ];
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.joel = import ./home/home.nix;
+            home-manager.extraSpecialArgs = { inherit inputs; };
+          }
+        ];
       };
     };
   };
