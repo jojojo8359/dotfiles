@@ -2,4 +2,4 @@ alias ls='ls --color=auto'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-
+#alias sound='echo "struct{int a:8,b:2,c:10;}d;main(){for(;;++d.c?:++d.b)putchar(d.a+=(d.b+5));}"|cc -xc -&&./a.out|aplay'
