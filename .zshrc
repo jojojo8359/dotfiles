@@ -14,10 +14,15 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 
 # Add zsh plugins
+zinit wait lucid light-mode for \
+  atinit"zicompinit; zicdreplay" \
+      zdharma-continuum/fast-syntax-highlighting \
+  atload"_zsh_autosuggest_start" \
+      zsh-users/zsh-autosuggestions \
+  blockf atpull'zinit creinstall -q .' \
+      zsh-users/zsh-completions
+
 #zinit light zsh-users/zsh-syntax-highlighting
-zinit light zdharma-continuum/fast-syntax-highlighting
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
 
 # Add snippets
 zinit snippet OMZP::git
@@ -49,9 +54,9 @@ setopt sharehistory
 setopt hist_ignore_all_dups
 
 # Use modern completion system
-autoload -Uz compinit && compinit
+#autoload -Uz compinit && compinit
 
-zinit cdreplay -q
+#zinit cdreplay -q
 
 #zstyle ':completion:*' auto-description 'specify: %d'
 #zstyle ':completion:*' completer _expand _complete _correct _approximate
