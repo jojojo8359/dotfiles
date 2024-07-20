@@ -24,7 +24,8 @@ zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::thefuck
 zinit snippet OMZP::command-not-found
-zinit snippet OMZP::globalias
+#zinit snippet OMZP::globalias
+# Only use globalais for git plugin???
 
 
 ## DEFAULT CONFIGURATION ##
@@ -80,7 +81,7 @@ fi
 
 ## OTHER SOURCES ##
 
-eval "$(oh-my-posh init zsh)"
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/catppuccin_mocha.toml)"
 
 # Attempt to complete aliases
 #unsetopt completealiases
