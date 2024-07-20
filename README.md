@@ -2,6 +2,8 @@
 
 My personal dotfiles. Has configurations for bash, zsh, and (WIP) NixOS.
 
+![OMP Theme Preview](theme.png)
+
 ## Setup
 
 Install `git` and `stow`. Clone this repo, and in the root of the repo, run `stow .`.
