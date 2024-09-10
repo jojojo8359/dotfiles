@@ -121,3 +121,4 @@ fi
 # Add alias for thefuck (fuck)
 eval "$(thefuck --alias)"
 
+export PATH="$PATH:/opt/nvim-linux64/bin"

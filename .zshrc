@@ -14,15 +14,16 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 
 # Add zsh plugins
-zinit wait lucid light-mode for \
-  atinit"zicompinit; zicdreplay" \
-      zdharma-continuum/fast-syntax-highlighting \
-  atload"_zsh_autosuggest_start" \
-      zsh-users/zsh-autosuggestions \
-  blockf atpull'zinit creinstall -q .' \
-      zsh-users/zsh-completions
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light Aloxaf/fzf-tab
 
-#zinit light zsh-users/zsh-syntax-highlighting
+# Use zsh completion system
+autoload -U compinit && compinit -u
+
+# Load completions
+zinit cdreplay -q
+
 
 # Add snippets
 zinit snippet OMZP::git
@@ -30,17 +31,10 @@ zinit snippet OMZP::sudo
 zinit snippet OMZP::thefuck
 zinit snippet OMZP::command-not-found
 #zinit snippet OMZP::globalias
-# Only use globalais for git plugin???
+# Only use globalias for git plugin???
 
 
 ## DEFAULT CONFIGURATION ##
-
-# Set up the prompt
-
-#autoload -Uz promptinit
-#promptinit
-#prompt adam1
-
 
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
@@ -53,31 +47,8 @@ setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_all_dups
 
-# Use modern completion system
-#autoload -Uz compinit && compinit
-
-#zinit cdreplay -q
-
-#zstyle ':completion:*' auto-description 'specify: %d'
-#zstyle ':completion:*' completer _expand _complete _correct _approximate
-#zstyle ':completion:*' format 'Completing %d'
-#zstyle ':completion:*' group-name ''
-#zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-colors ''
-#zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-#zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-#zstyle ':completion:*' menu select=long
-#zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-#zstyle ':completion:*' use-compctl false
-#zstyle ':completion:*' verbose true
-
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' menu no
+# Source separate file with completion stuff
+source ~/.zsh_completion
 
 # Aliases
 if [ -f ~/.zsh_aliases ]; then
@@ -86,8 +57,17 @@ fi
 
 ## OTHER SOURCES ##
 
+# Load OMP prompt theme
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/catppuccin_mocha.toml)"
+
+# Set up fzf key bindings and fuzzy completion
+#source <(fzf --zsh)
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
 
 # Attempt to complete aliases
 #unsetopt completealiases
 
+export XDG_CONFIG_HOME=~/.config/
+
+export PATH="$PATH:/opt/nvim-linux64/bin"
