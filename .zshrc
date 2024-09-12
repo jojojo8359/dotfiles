@@ -60,6 +60,8 @@ fi
 # Load OMP prompt theme
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/catppuccin_mocha.toml)"
 
+eval "$(thefuck --alias)"
+
 # Set up fzf key bindings and fuzzy completion
 #source <(fzf --zsh)
 source /usr/share/doc/fzf/examples/key-bindings.zsh
@@ -72,7 +74,7 @@ export XDG_CONFIG_HOME=~/.config
 
 export PATH="$PATH:/opt/nvim-linux64/bin"
 
-export NVM_DIR="$HOME/.config//nvm"
+export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 

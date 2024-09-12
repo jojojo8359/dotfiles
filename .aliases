@@ -9,3 +9,5 @@ alias ll='eza -la --git --git-repos-no-status'
 alias la='eza -a'
 alias l='eza -F'
 #alias sound='echo "struct{int a:8,b:2,c:10;}d;main(){for(;;++d.c?:++d.b)putchar(d.a+=(d.b+5));}"|cc -xc -&&./a.out|aplay'
+alias vi='nvim'
+
