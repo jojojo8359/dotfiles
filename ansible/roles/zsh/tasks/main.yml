@@ -1,0 +1,21 @@
+- name: Install zsh (Ubuntu)
+  become: true
+  ansible.builtin.apt:
+    name:
+      - zsh
+    state: present
+  when: ansible_distribution == "Ubuntu"
+
+- name: Install zsh (Fedora)
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - zsh
+    state: present
+  when: ansible_distribution == "Fedora"
+
+- name: Make zsh default shell
+  ansible.builtin.shell:
+    cmd: 'chsh -s zsh {{ ansible_user_id }}'
+  when: '"zsh" not in ansible_user_shell'
+

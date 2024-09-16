@@ -1,0 +1,16 @@
+---
+- name: Run dotfiles installation
+  hosts: localhost
+  tasks:
+    - name: stow
+      tags:
+        - stow
+      import_role:
+        name: stow
+
+    - name: zsh
+      tags:
+        - zsh
+      import_role:
+        name: zsh
+

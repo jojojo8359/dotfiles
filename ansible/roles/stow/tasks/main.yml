@@ -1,0 +1,21 @@
+- name: Install stow (Ubuntu)
+  become: true
+  ansible.builtin.apt:
+    name:
+      - stow
+    state: present
+  when: ansible_distribution == "Ubuntu"
+
+- name: Install stow (Fedora)
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - stow
+    state: present
+  when: ansible_distribution == "Fedora"
+
+- name: Run stow
+  ansible.builtin.shell: "stow {{ playbook_dir }}/.. --target {{ ansible_env.HOME }} --verbose=2"
+  register: result
+  changed_when: 'result.stderr is search("LINK: ")'
+

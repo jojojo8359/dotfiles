@@ -1,0 +1,6 @@
+# Ubuntu
+sudo apt update
+sudo apt install -y pipx
+pipx ensurepath
+pipx install --include-deps ansible
+
