@@ -3,6 +3,7 @@
 # OTHER SOFTWARE
 # nvm (node + npm)
 # neovim
+# xclip
 
 apt_packages=()
 

@@ -2,7 +2,7 @@ return {
     {
         "catppuccin/nvim",
         name = "catppuccin",
-        lazy = false,
+        event = "VimEnter",
         priority = 1000,
         opts = function()
             return require("config.catppuccin") -- load custom configuration
