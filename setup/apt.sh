@@ -4,6 +4,7 @@
 # nvm (node + npm)
 # neovim
 # xclip
+# lazygit
 
 apt_packages=()
 
@@ -16,5 +17,3 @@ for package in "${apt_packages[@]}"; do
   echo "Installing $package"
   sudo apt-get -y install "$package"
 done
-
-
